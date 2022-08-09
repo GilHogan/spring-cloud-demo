@@ -21,6 +21,7 @@ password：123456
 * Spring Cloud Version: 2021.0.1
 * Spring Cloud Alibaba Version: 2021.0.1.0
 * Spring Boot Version: 2.6.3
+* nacos-server: 2.1.1
 
 ### 模块
 1. Eureka
