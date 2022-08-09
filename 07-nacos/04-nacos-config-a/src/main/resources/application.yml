@@ -1,0 +1,22 @@
+server:
+    port: 8081
+spring:
+    application:
+        name: nacos-config-a
+    # 项目在启动的时候去哪里找它对应的配置文件呢??
+    cloud:
+        nacos:
+            config:
+                # 启用nacos配置管理
+                enabled: true
+                # 注意！！！ - 实测spring-cloud-alibaba：2021.0.1.0 版本下，此参数必须设置，并且spring.config.import 下的配置文件不需要带有文件后缀名称
+                file-extension: yml
+                server-addr: 127.0.0.1:8848
+                username: nacos
+                password: nacos
+    config:
+        # 因为springboot 2.4版本以后默认关闭加载bootstrap.yml，所以通过此方式连接到nacos config
+        import:
+            - nacos:nacos-config?group=DEFAULT_GROUP # 在拉取nacos配置异常时会快速失败，会导致 spring 容器启动失败
+            - optional:nacos:nacos-config-agroup?group=A_GROUP # 覆盖默认 group，监听 A_GROUP:nacos-config-agroup.yml
+            - optional:nacos:nacos-config-refresh-false?refreshEnabled=false # 不开启动态刷新

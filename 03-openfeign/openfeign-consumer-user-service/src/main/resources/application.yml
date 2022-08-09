@@ -1,0 +1,20 @@
+server:
+    port: 8081
+spring:
+    application:
+        name: user-service
+eureka:
+    client:
+        service-url:
+            defaultZone: "https://root:123456@spring-cloud.ghj.zone/eureka/server/eureka,\
+                https://root:123456@spring-cloud.ghjv22.tk/eureka/server/eureka"
+feign:
+    client:
+        config:
+            default:
+                connectTimeout: 1000
+                readTimeout: 3000
+                loggerLevel: BASIC
+logging:
+    level:
+        com.hogan.consumeruserservice.feign.UserOrderFeign: debug  # 我需要答应这个接口下面的日志

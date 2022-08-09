@@ -1,0 +1,10 @@
+server:
+    port: 8082
+spring:
+    application:
+        name: rent-car-service
+eureka:
+    client:
+        service-url:
+            defaultZone: "https://root:123456@spring-cloud.ghj.zone/eureka/server/eureka,\
+                https://root:123456@spring-cloud.ghjv22.tk/eureka/server/eureka"

@@ -1,0 +1,15 @@
+server:
+    port: 8083
+spring:
+    application:
+        name: eureka-client-c
+eureka:
+    client:
+        service-url:
+            defaultZone: "https://root:123456@spring-cloud.ghj.zone/eureka/server/eureka,\
+                https://root:123456@spring-cloud.ghjv22.tk/eureka/server/eureka"
+    instance:
+        prefer-ip-address: true
+        instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+        hostname: localhost
+        lease-renewal-interval-in-seconds: 10

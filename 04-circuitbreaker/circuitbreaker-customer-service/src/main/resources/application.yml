@@ -1,0 +1,19 @@
+server:
+    port: 8081
+spring:
+    application:
+        name: customer-service
+eureka:
+    client:
+        service-url:
+            defaultZone: "https://root:123456@spring-cloud.ghj.zone/eureka/server/eureka,\
+                https://root:123456@spring-cloud.ghjv22.tk/eureka/server/eureka"
+feign:
+    client:
+        config:
+            default:
+                connectTimeout: 2000
+                readTimeout: 2000
+                loggerLevel: basic
+    circuitbreaker:
+        enabled: true
